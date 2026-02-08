@@ -4,6 +4,17 @@
 
 An end-to-end machine learning pipeline to predict 30-day hospital readmission risk for diabetic patients using the UCI Diabetes dataset. The project transitions from a "black-box" Random Forest model to a transparent, ***clinically interpretable system*** using LIME (Local Interpretable Model-agnostic Explanations).
 
+
+## 🛡️ Multi-Level Governance: SHAP + LIME
+This project utilizes a dual-audit approach. SHAP provides the "Global" view to verify model fairness across the whole hospital system, while LIME provides the "Local" view for individual clinical transparency.
+
+### Global vs. Local Explinations
+
+| Type | Difference |
+| :--- | :--- |
+| Global (SHAP) | Makes sure the model isn't biased against certain age groups across the whole hospital |
+| Local (LIME) | Tells a doctor exactly *why* this patient is being flagged for readmission today |
+
 ---
 
 ## 📑 Table of Contents
@@ -14,6 +25,7 @@ An end-to-end machine learning pipeline to predict 30-day hospital readmission r
 5. [Installation & Setup](#-installation--setup)
 6. [Graph Interpretation](#-graph-interpretation)
 7. [Lessons Learned & Project Insights](#-lessons-learned--project-insights)
+8. [Future Improvements: The "Hybrid Audit"](#-future-improvements-the-hybrid-audit)
 
 ---
 
@@ -92,13 +104,6 @@ Instead of just giving a "High Risk" label, this system provides a **Local Expla
 
 ---
 
-### Global vs. Local Explinations
-
-| Type | Difference |
-| :--- | :--- |
-| Global (SHAP) | Makes sure the model isn't biased against certain age groups across the whole hospital |
-| Local (LIME) | Tells a doctor exactly *why* this patient is being flagged for readmission today |
-
 ## 💡 Lessons Learned & Project Insights
 * **The Myth of the "Black Box":** I learned that complex models like Random Forests don't have to be mysterious. By using LIME, we can extract a "clinical narrative" for every prediction, which is essential for earning physician trust.
 
@@ -107,3 +112,10 @@ Instead of just giving a "High Risk" label, this system provides a **Local Expla
 * **The Importance of Determinism:** In healthcare AI, "randomness" is a liability. By locking the random state of our explainer, we ensure that a patient's risk explanation doesn't change every time a user refreshes the page, satisfying core reproducibility requirements.
 
 * **Precision vs. Recall Trade-offs:** In a hospital setting, missing a high-risk patient (a False Negative) is often more dangerous than a False Alarm. I learned to use class_weight='balanced' to bias the model toward Patient Safety.
+
+---
+
+## 🔮 Future Improvements: The "Hybrid Audit"
+By combining both of your scripts into a "Hybrid Audit" section in your README, you demonstrate a master-level understanding of AI Governance.
+* 📈 Global Reliability (SHAP): "I used SHAP to ensure the model's overall logic aligns with medical standards (e.g., ensuring age and prior_hospitalization are the top drivers across the entire population)."
+* 🎯 Local Precision (LIME): "I used LIME to provide a bedside explanation for individual patient cases where the 'global' rules might not tell the whole story."
