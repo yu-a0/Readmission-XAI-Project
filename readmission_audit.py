@@ -54,6 +54,7 @@ def run_shap_audit(model, X_test):
     plt.figure(figsize=(10,6))
     shap.summary_plot(target_values, X_sample, show=False)
     plt.title("2026 AI Governance: Global Feature Impact")
+    #Automatically adjusts plot area size
     plt.tight_layout()
     #Fine-tuning the size of the charts
     #plt.subplots_adjust(left=0.3, right=0.9, top=0.9, bottom=0.1)
