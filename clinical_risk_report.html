@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divJKN6Y04Q9WAIUO5"></div>
+        <div class="lime top_div" id="top_divPF0CQGO56C1XZVH"></div>
         
         <script>
-        var top_div = d3.select('#top_divJKN6Y04Q9WAIUO5').classed('lime top_div', true);
+        var top_div = d3.select('#top_divPF0CQGO56C1XZVH').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["Low Risk", "High Risk"], [0.9, 0.1]);
+            var pp = new lime.PredictProba(pp_svg, ["Low Risk", "High Risk"], [0.87, 0.13]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["Low Risk", "High Risk"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["number_inpatient <= 0.00", -0.04621493377354405], ["nateglinide_Up <= 0.00", -0.036045210107894], ["acarbose_Steady <= 0.00", 0.029296134235911694], ["number_emergency <= 0.00", -0.0283599883096615], ["glimepiride-pioglitazone_Steady <= 0.00", 0.024342759689569005], ["1.00 < discharge_disposition_id <= 4.00", 0.020645530012792818], ["glipizide-metformin_Steady <= 0.00", 0.019949356801438202], ["glyburide-metformin_Up <= 0.00", -0.017442539164866475], ["tolbutamide_Steady <= 0.00", 0.01648784943284456], ["tolazamide_Steady <= 0.00", -0.013020804043558423]], 1, exp_div);
+                exp.show([["number_inpatient <= 0.00", -0.04625570251819853], ["miglitol_Steady <= 0.00", -0.045104690943042314], ["tolbutamide_Steady <= 0.00", -0.030966954101887084], ["number_emergency <= 0.00", -0.02852977795051935], ["rosiglitazone_Up <= 0.00", 0.022391301564454787], ["tolazamide_Steady <= 0.00", 0.02119379752608717], ["discharge_disposition_id <= 1.00", -0.020235260961758688], ["nateglinide_Steady <= 0.00", -0.019649018644762154], ["max_glu_serum_>300 <= 0.00", -0.017807102345956106], ["repaglinide_Up <= 0.00", -0.0012463434668060051]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["number_inpatient", "0.00", -0.04621493377354405], ["nateglinide_Up", "0.00", -0.036045210107894], ["acarbose_Steady", "0.00", 0.029296134235911694], ["number_emergency", "0.00", -0.0283599883096615], ["glimepiride-pioglitazone_Steady", "0.00", 0.024342759689569005], ["discharge_disposition_id", "4.00", 0.020645530012792818], ["glipizide-metformin_Steady", "0.00", 0.019949356801438202], ["glyburide-metformin_Up", "0.00", -0.017442539164866475], ["tolbutamide_Steady", "0.00", 0.01648784943284456], ["tolazamide_Steady", "0.00", -0.013020804043558423]], 1, raw_div);
+            exp.show_raw_tabular([["number_inpatient", "0.00", -0.04625570251819853], ["miglitol_Steady", "0.00", -0.045104690943042314], ["tolbutamide_Steady", "0.00", -0.030966954101887084], ["number_emergency", "0.00", -0.02852977795051935], ["rosiglitazone_Up", "0.00", 0.022391301564454787], ["tolazamide_Steady", "0.00", 0.02119379752608717], ["discharge_disposition_id", "1.00", -0.020235260961758688], ["nateglinide_Steady", "0.00", -0.019649018644762154], ["max_glu_serum_>300", "0.00", -0.017807102345956106], ["repaglinide_Up", "0.00", -0.0012463434668060051]], 1, raw_div);
         
         </script>
         </body></html>
