@@ -1,23 +1,16 @@
-# 🏥 Explainable AI for Clinical Risk Stratification
+# 🏥 Explainable AI (XAI) for Clinical Risk Stratification
 
 ### Executive Summary
 
 An end-to-end machine learning pipeline to predict 30-day hospital readmission risk for diabetic patients using the UCI Diabetes dataset. The project transitions from a "black-box" Random Forest model to a transparent, ***clinically interpretable system*** using LIME (Local Interpretable Model-agnostic Explanations).
 
 
-## 🛡️ Multi-Level Governance: SHAP + LIME
+### Multi-Level Governance: SHAP + LIME
 This project utilizes a dual-audit approach. SHAP provides the "Global" view to verify model fairness across the whole hospital system, while LIME provides the "Local" view for individual clinical transparency.
-
-### Global vs. Local Explinations
-
-| Type | Difference |
-| :--- | :--- |
-| Global (SHAP) | Makes sure the model isn't biased against certain age groups across the whole hospital |
-| Local (LIME) | Tells a doctor exactly *why* this patient is being flagged for readmission today |
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 1. [Live Interactive Dashboard](#-live-interactive-dashboard)
 2. [Project Overview](#-project-overview)
 3. [The "Aris" Clinical Strategy](#-the-aris-clinical-strategy)
@@ -25,29 +18,28 @@ This project utilizes a dual-audit approach. SHAP provides the "Global" view to 
 5. [Installation & Setup](#-installation--setup)
 6. [Graph Interpretation](#-graph-interpretation)
 7. [Lessons Learned & Project Insights](#-lessons-learned--project-insights)
-8. [Future Improvements: The "Hybrid Audit"](#-future-improvements-the-hybrid-audit)
 
 ---
 
-## 🌐 Live Interactive Dashboard
-👉 **[View the Live Clinical Risk Report](https://your-username.github.io/Readmission-XAI-Project/clinical_risk_report.html)**
+## Live Interactive Dashboard
+**[View the Live Clinical Risk Report](https://your-username.github.io/Readmission-XAI-Project/clinical_risk_report.html)**
 *(Note: Replace with your actual GitHub Pages URL)*
 
 ---
 
-## 📝 Project Overview
+## Project Overview
 Using the UCI Diabetes dataset, this model identifies high-risk patients likely to be readmitted within 30 days. 
 * **Model:** Random Forest Classifier.
 * **Focus:** Recall-optimized to ensure medical staff do not miss "at-risk" individuals.
 * **Regulation:** Built with 2026 AI Governance standards in mind (reproducibility and interpretability).
 
-### 🛠️ Tools & Technologies
+### Tools & Technologies
 
 * **Languages:** Python (VS Code environment)
-* **Libraries:** Scikit-Learn, Pandas, LIME, Matplotlib, NumPy
+* **Libraries:** Scikit-Learn, Pandas, LIME, SHAP, Matplotlib, NumPy
 * **Domain Focus:** Clinical Informatics, AI Governance, Healthcare Risk Stratification
 
-### 🚀 Key Technical Contributions
+### Key Technical Contributions
 
 * **Clinical Data Engineering:** Implemented an automated pipeline to map over 700 raw ICD-9 diagnosis codes into 9 high-level clinical categories (e.g., Circulatory, Respiratory, Diabetes), significantly improving model interpretability for medical staff.
 
@@ -60,7 +52,7 @@ Using the UCI Diabetes dataset, this model identifies high-risk patients likely 
 
 ---
 
-## 🩺 The "Aris" Clinical Strategy
+## The "Aris" Clinical Strategy
 Raw medical data is often unreadable (e.g., ICD-9 code `428.0`). I implemented a **Clinical Mapper** to translate these into human-readable categories:
 * **Circulatory:** Heart and blood vessel issues.
 * **Respiratory:** Lung and breathing complications.
@@ -68,21 +60,21 @@ Raw medical data is often unreadable (e.g., ICD-9 code `428.0`). I implemented a
 
 ---
 
-## 🔍 Explainable AI (LIME) Logic
+## Explainable AI (LIME) Logic
 Instead of just giving a "High Risk" label, this system provides a **Local Explanation** for every patient.
 * **Locked Sampling:** Uses a fixed `random_state` to ensure the explanation remains stable across sessions.
 * **Risk Drivers:** Identifies which medication changes (e.g., Nateglinide dosage) or history markers are pushing the risk score up or down.
 
 ---
 
-## ⚙️ Installation & Setup
+## Installation & Setup
 1. Clone the repo: `git clone https://github.com/your-username/Readmission-XAI-Project.git`
 2. Install requirements: `pip install -r requirements.txt`
 3. Run the audit: `python readmission_model.py`
 
 ---
 
-## 📊 Graph Interpretation
+## Graph Interpretation
 
 ### Labels
 
@@ -111,11 +103,4 @@ Instead of just giving a "High Risk" label, this system provides a **Local Expla
 
 * **The Importance of Determinism:** In healthcare AI, "randomness" is a liability. By locking the random state of our explainer, we ensure that a patient's risk explanation doesn't change every time a user refreshes the page, satisfying core reproducibility requirements.
 
-* **Precision vs. Recall Trade-offs:** In a hospital setting, missing a high-risk patient (a False Negative) is often more dangerous than a False Alarm. I learned to use class_weight='balanced' to bias the model toward Patient Safety.
-
----
-
-## 🔮 Future Improvements: The "Hybrid Audit"
-By combining both of your scripts into a "Hybrid Audit" section in your README, you demonstrate a master-level understanding of AI Governance.
-* 📈 Global Reliability (SHAP): "I used SHAP to ensure the model's overall logic aligns with medical standards (e.g., ensuring age and prior_hospitalization are the top drivers across the entire population)."
-* 🎯 Local Precision (LIME): "I used LIME to provide a bedside explanation for individual patient cases where the 'global' rules might not tell the whole story."
+* **Precision vs. Recall Trade-offs:** In a hospital setting, missing a high-risk patient (a False Negative) is often more dangerous than a False Alarm. I learned to use `class_weight='balanced'` to bias the model toward Patient Safety.
