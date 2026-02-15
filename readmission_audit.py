@@ -51,14 +51,16 @@ def run_shap_audit(model, X_test):
     # Handle list format for Random Forest classification
     target_values = shap_values[1] if isinstance(shap_values, list) else shap_values
     
-    plt.figure(figsize=(10,6))
+    plt.figure(figsize=(16,10))
     shap.summary_plot(target_values, X_sample, show=False)
-    plt.title("2026 AI Governance: Global Feature Impact")
+    plt.title("AI Governance: Global Feature Impact", fontsize=18, y=1.08)
     #Automatically adjusts plot area size
-    plt.tight_layout()
+    plt.tight_layout(rect=[0, 0.03, 1, 0.95])
     #Fine-tuning the size of the charts
-    #plt.subplots_adjust(left=0.3, right=0.9, top=0.9, bottom=0.1)
-    plt.savefig('global_risk_audit.png', bbox_inches='tight')
+    #plt.subplots_adjust(left=0.35, right=0.9, top=0.85, bottom=0.15)
+    plt.xticks(fontsize=11)
+    plt.yticks(fontsize=11)
+    plt.savefig('global_risk_audit.png', bbox_inches='tight', dpi=300)
     plt.show()
 
 # --- 4. LIME (LOCAL EXPLANATION) ---
